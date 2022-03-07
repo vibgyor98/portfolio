@@ -378,6 +378,34 @@ h6 {
   font-size: 14px;
 }
 
+.username {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: var(--secondaryColor);
+  border-radius: 5px;
+  border: 1px solid var(--borderColor);
+  font-size: 14px;
+}
+.email {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: var(--secondaryColor);
+  border-radius: 5px;
+  border: 1px solid var(--borderColor);
+  font-size: 14px;
+}
+.message {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: var(--secondaryColor);
+  border-radius: 5px;
+  border: 1px solid var(--borderColor);
+  font-size: 14px;
+}
+
 #submit-btn {
   margin-top: 10px;
   width: 100%;

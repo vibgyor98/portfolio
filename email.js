@@ -1,25 +1,56 @@
-(function () {
-  emailjs.init('5myISp3pztpjfuNoP');
-})();
+function validate() {
+  let name = document.querySelector('.username');
+  let email = document.querySelector('.email');
+  let msg = document.querySelector('.message');
+  let btn = document.querySelector('.submit');
 
-window.onload = function () {
-  ' ';
-};
-{
-  document
-    .getElementById('contact-form')
-    .addEventListener('submit', function (event) {
-      event.preventDefault();
-      // generate a five digit number for the contact_number variable
-      // this.contact_number.value = (Math.random() * 100000) | 0;
-      // these IDs from the previous steps
-      emailjs.sendForm('contact_service', 'contact-form', this).then(
-        function () {
-          console.log('SUCCESS!');
-        },
-        function (error) {
-          console.log('FAILED...', error);
-        }
-      );
-    });
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (name.value == '' || email.value == '' || msg.value == '') {
+      emptyerror();
+    } else {
+      sendmail(name.value, email.value, msg.value);
+      success();
+      resetForm();
+    }
+  });
+}
+validate();
+
+function sendmail(name, email, msg) {
+  emailjs.send('contact_service', 'template_gvbfvta', {
+    to_name: 'Sourav',
+    from_name: email,
+    name: name,
+    message: msg,
+  });
+}
+
+function emptyerror() {
+  swal({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Fields cannot be empty!',
+  });
+}
+
+function error() {
+  swal({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong!',
+  });
+}
+
+function success() {
+  swal({
+    icon: 'success',
+    title: 'Success...',
+    text: 'Successfully sent message',
+  });
+}
+
+//Reset form
+function resetForm() {
+  document.getElementById('contact-form').reset();
 }

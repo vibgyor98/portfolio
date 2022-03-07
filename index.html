@@ -20,6 +20,9 @@
 
     <link rel="stylesheet" type="text/css" href="default.css" />
     <link id="theme-style" rel="stylesheet" type="text/css" href="" />
+
+    <!-- sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body>
     <section class="s1">
@@ -46,20 +49,6 @@
 
           <div class="left-column">
             <img id="profile_pic" src="images/sourav.jpg" />
-            <!-- <h5 style="text-align: center; line-height: 0">
-              Personalize Theme
-            </h5> -->
-
-            <!-- <div id="theme-options-wrapper">
-              <div data-mode="light" id="light-mode" class="theme-dot"></div>
-              <div data-mode="blue" id="blue-mode" class="theme-dot"></div>
-              <div data-mode="green" id="green-mode" class="theme-dot"></div>
-              <div data-mode="purple" id="purple-mode" class="theme-dot"></div>
-            </div> -->
-
-            <!-- <p id="settings-note">
-              *Theme settings will be saved for<br />your next vist
-            </p> -->
           </div>
 
           <div class="right-column">
@@ -182,30 +171,35 @@
         <a href=""></a>
         <h3 style="text-align: center">Get In Touch</h3>
 
-        <form id="contact-form">
+        <form id="contact-form" method="post">
           <a name="contact"></a>
 
           <label>Name</label>
-          <input class="input-field" type="text" name="name" />
-
-          <label>Subject</label>
-          <input class="input-field" type="text" name="subject" />
+          <input class="username" type="text" name="name" />
 
           <label>Email</label>
-          <input class="input-field" type="text" name="email" />
+          <input class="email" type="text" name="email" />
 
           <label>Message</label>
-          <textarea class="input-field" name="message"></textarea>
+          <textarea class="message" name="message"></textarea>
 
-          <input id="submit-btn" type="submit" value="Send" />
+          <input class="submit" id="submit-btn" type="submit" value="Send" />
         </form>
       </div>
     </section>
 
+    <!-- email.js integration -->
+    <!-- User ID       5myISp3pztpjfuNoP -->
+    <!-- Access Token  eR7WoTrZYbZLBcLLfwUiF -->
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
     ></script>
-    <script type="text/javascript" src="email.js"></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init('5myISp3pztpjfuNoP');
+      })();
+    </script>
+    <script src="email.js"></script>
   </body>
 </html>
